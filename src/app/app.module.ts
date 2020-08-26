@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from "ngx-toastr"
 
+import { NavigationModule } from "./modules/navigation/navigation.module"
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -13,7 +14,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NavigationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
