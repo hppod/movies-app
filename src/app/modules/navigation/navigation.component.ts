@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  title: string = 'Meus filmes favoritos'
+  title: string = 'Filmoteca'
 
   constructor() { }
 
