@@ -28,7 +28,6 @@ export class MoviesComponent implements OnInit, OnDestroy {
   findAllMovies(): void {
     this.httpRequest = this.moviesService.findAllMovies().subscribe(response => {
       this.Filmes = response.body['data']
-      console.log(this.Filmes)
     }, err => {
       console.log(err)
     })
