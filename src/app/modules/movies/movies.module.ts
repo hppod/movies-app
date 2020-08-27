@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { MatCardModule } from "@angular/material/card"
+
 import { MoviesRoutingModule } from './movies-routing.module';
 import { MoviesComponent } from './movies.component';
 
@@ -9,7 +11,8 @@ import { MoviesComponent } from './movies.component';
   declarations: [MoviesComponent],
   imports: [
     CommonModule,
-    MoviesRoutingModule
+    MoviesRoutingModule,
+    MatCardModule
   ]
 })
 export class MoviesModule { }
