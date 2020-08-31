@@ -7,12 +7,14 @@ import { FlexLayoutModule } from "@angular/flex-layout"
 import { MoviesRoutingModule } from './movies-routing.module';
 import { MoviesComponent } from './movies.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 
 
 @NgModule({
   declarations: [
     MoviesComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    MovieDetailComponent
   ],
   imports: [
     CommonModule,
