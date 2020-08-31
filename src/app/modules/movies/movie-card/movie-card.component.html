@@ -4,9 +4,10 @@
         <mat-card-title>{{Filme.diretor.nome}}</mat-card-title>
         <mat-card-subtitle>{{Filme.genero}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image class="moviePoster-image" [src]="Filme.imagem" alt="Poster of a {{Filme.nome}}">
+    <img mat-card-image [routerLink]="['/movies/detail', Filme.nome]" class="moviePoster-image routerLinkMovie"
+        [src]="Filme.imagem" alt="Poster of a {{Filme.nome}}">
     <mat-card-content>
-        <span class="mat-h2">{{Filme.nome}}</span>
+        <span [routerLink]="['/movies/detail', Filme.nome]" class="mat-h2 routerLinkMovie">{{Filme.nome}}</span>
         <p>
             {{sliceSnyposis(Filme.sinopse)}}
         </p>

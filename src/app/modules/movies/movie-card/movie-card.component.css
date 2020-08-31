@@ -9,3 +9,11 @@
 .content>mat-card {
     width: 200px;
 }
+
+.routerLinkMovie {
+    cursor: pointer;
+}
+
+.routerLinkMovie:hover {
+    text-decoration: underline
+}
