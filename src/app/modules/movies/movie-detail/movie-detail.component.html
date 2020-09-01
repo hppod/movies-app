@@ -1,1 +1,37 @@
-<p>movie-detail works!</p>
+<div class="content" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="start center"
+    fxLayoutAlign.gt-sm="center start" fxLayoutGap="16px">
+    <div fxFlex="50%" fxFlex.gt-sm="25%">
+        <mat-card class="mat-elevation-z0">
+            <img mat-card-image class="movieCover" [src]="Filme.imagem" alt="Photo of a {{Filme.nome}}">
+        </mat-card>
+        <mat-card class="mat-elevation-z3">
+            <mat-card-header>
+                <img mat-card-avatar class="directorImage" [src]="Filme.diretor.imagem"
+                    alt="Photo of a {{Filme.diretor.nome}}">
+                <div class="directorName">{{Filme.diretor.nome}}</div>
+            </mat-card-header>
+        </mat-card>
+    </div>
+    <div fxFlex="50%" fxFlex.gt-sm="75%">
+        <mat-card class="mat-elevation-z0">
+            <div class="row">
+                <span class="mat-display-1 uppercase-text">{{Filme.nome}}</span>
+                <br>
+                <span class="movieInfo">{{Filme.genero}}</span>
+                <br>
+                <span *ngIf="Filme.dataLancamento" class="movieInfo">Lançado em
+                    {{Filme.dataLancamento | date: 'dd/MM/yyyy'}}</span>
+            </div>
+            <div *ngIf="Filme.classificacaoIndicativa || Filme.duracao" class="row">
+                <span *ngIf="Filme.classificacaoIndicativa" class="movieInfo"><b class="movieInfoBold">
+                        Classificação Indicativa: </b> {{Filme.classificacaoIndicativa}}</span>
+                &nbsp;
+                <span *ngIf="Filme.duracao" class="movieInfo"><b class="movieInfoBold">Duração do filme:
+                    </b>{{Filme.duracao}}</span>
+            </div>
+            <div class="row">
+                <p class="movieSynopsis">{{Filme.sinopse}}</p>
+            </div>
+        </mat-card>
+    </div>
+</div>
