@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from "rxjs"
 import { Filme } from "./../../core/models/filme.model"
 import { MoviesService } from "./../../core/services/movies.service"
+import { MatDialog } from "@angular/material/dialog"
+import { NewMovieComponent } from "./new-movie/new-movie.component"
 
 @Component({
   selector: 'app-movies',
@@ -14,7 +16,8 @@ export class MoviesComponent implements OnInit, OnDestroy {
   Filmes: Filme[]
 
   constructor(
-    private moviesService: MoviesService
+    private moviesService: MoviesService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -30,6 +33,14 @@ export class MoviesComponent implements OnInit, OnDestroy {
       this.Filmes = response.body['data']
     }, err => {
       console.log(err)
+    })
+  }
+
+  openNewMovieModal(): void {
+    const dialogRef = this.dialog.open(NewMovieComponent, {
+      width: '600px',
+      height: '600px',
+      disableClose: true
     })
   }
 
