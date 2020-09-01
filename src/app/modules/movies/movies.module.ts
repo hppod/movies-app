@@ -8,6 +8,7 @@ import { MoviesRoutingModule } from './movies-routing.module';
 import { MoviesComponent } from './movies.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { ComponentsModule } from "./../../components/components.module"
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
     CommonModule,
     MoviesRoutingModule,
     MatCardModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ComponentsModule
   ]
 })
 export class MoviesModule { }

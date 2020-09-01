@@ -1,4 +1,5 @@
-<div class="content" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="start center"
+<app-loading *ngIf="!Filme"></app-loading>
+<div *ngIf="Filme" class="content" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="start center"
     fxLayoutAlign.gt-sm="center start" fxLayoutGap="16px">
     <div fxFlex="50%" fxFlex.gt-sm="25%">
         <mat-card class="mat-elevation-z0">
