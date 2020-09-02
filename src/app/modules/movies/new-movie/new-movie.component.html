@@ -70,12 +70,12 @@
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
             <div class="form-element">
-                <button class="button" color="primary" mat-button [mat-dialog-close]="true"
-                    [disabled]="movieFormGroup.invalid" (click)="createNewMovie()">Adicionar filme</button>
+                <button class="button" color="primary" mat-button [disabled]="movieFormGroup.invalid"
+                    (click)="createNewMovie()">Adicionar filme</button>
             </div>
         </form>
     </mat-step>
 </mat-horizontal-stepper>
 <div class="form-element">
-    <button mat-button class="button" color="warn" [mat-dialog-close]="false">Fechar</button>
+    <button mat-button class="button" color="warn" (click)="closeDialog()">Fechar</button>
 </div>
