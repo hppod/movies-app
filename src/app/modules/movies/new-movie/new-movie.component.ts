@@ -7,6 +7,7 @@ import { Diretor } from "./../../../core/models/diretor.model"
 import { DirectorsService } from "./../../../core/services/directors.service"
 import { MyToastrService } from "./../../../core/services/toastr.service"
 import { MoviesService } from "./../../../core/services/movies.service"
+import * as moment from "moment"
 
 @Component({
   selector: 'app-new-movie',
@@ -109,6 +110,7 @@ export class NewMovieComponent implements OnInit, OnDestroy {
   }
 
   createNewMovie(): void {
+    this.setDateFormattedOnMovieForm(this.movieFormGroup.value['dataLancamento'])
     this.httpRequest = this.moviesService.createNewMovie(this.movieFormGroup.value).subscribe(response => {
       this.toastr.showToastrSuccess(`O filme ${response.body['data']['nome']} foi adicionado com sucesso`)
       this.dialogRef.close(true)
@@ -120,6 +122,13 @@ export class NewMovieComponent implements OnInit, OnDestroy {
 
   closeDialog(): void {
     this.dialogRef.close(false)
+  }
+
+  setDateFormattedOnMovieForm(value: string): void {
+    if (value) {
+      let dateFormatted: string = moment.utc(value).local().format('YYYY-MM-DD')
+      this.movieFormGroup.controls['dataLancamento'].setValue(dateFormatted)
+    }
   }
 
 }
