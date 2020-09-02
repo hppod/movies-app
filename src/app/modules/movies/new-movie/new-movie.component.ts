@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms"
-// import { CdkTextareaAutosize } from "@angular/cdk/text-field"
+import { CdkTextareaAutosize } from "@angular/cdk/text-field"
 import { Subscription } from "rxjs"
 import { Diretor } from "./../../../core/models/diretor.model"
 import { DirectorsService } from "./../../../core/services/directors.service"
