@@ -26,7 +26,8 @@
             </mat-form-field>
             <mat-form-field class="form-element">
                 <mat-label>Biografia</mat-label>
-                <textarea matInput formControlName="biografia" placeholder="Biografia"></textarea>
+                <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" formControlName="biografia"
+                    placeholder="Biografia"></textarea>
             </mat-form-field>
         </form>
         <div class="form-element">
@@ -51,7 +52,8 @@
             </mat-form-field>
             <mat-form-field class="form-element">
                 <mat-label>Sinopse</mat-label>
-                <textarea matInput formControlName="sinopse" placeholder="Sinopse" required></textarea>
+                <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" formControlName="sinopse"
+                    placeholder="Sinopse" required></textarea>
             </mat-form-field>
             <mat-form-field class="form-element">
                 <mat-label>Classificação indicativa</mat-label>
