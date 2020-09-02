@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms"
 import { CdkTextareaAutosize } from "@angular/cdk/text-field"
+import { MatDialogRef } from "@angular/material/dialog"
 import { Subscription } from "rxjs"
 import { Diretor } from "./../../../core/models/diretor.model"
 import { DirectorsService } from "./../../../core/services/directors.service"
@@ -22,13 +23,14 @@ export class NewMovieComponent implements OnInit, OnDestroy {
   stepDirectorLabel: String = 'Diretor'
   movieFormGroup: FormGroup
 
-  // @ViewChild('autosize') autosize: CdkTextareaAutosize
+  @ViewChild('autosize') autosize: CdkTextareaAutosize
 
   constructor(
     private directorsService: DirectorsService,
     private builder: FormBuilder,
     private toastr: MyToastrService,
-    private moviesService: MoviesService
+    private moviesService: MoviesService,
+    private dialogRef: MatDialogRef<NewMovieComponent>
   ) { }
 
   ngOnInit(): void {
@@ -109,9 +111,14 @@ export class NewMovieComponent implements OnInit, OnDestroy {
   createNewMovie(): void {
     this.httpRequest = this.moviesService.createNewMovie(this.movieFormGroup.value).subscribe(response => {
       this.toastr.showToastrSuccess(`O filme ${response.body['data']['nome']} foi adicionado com sucesso`)
+      this.dialogRef.close(true)
     }, err => {
       this.toastr.showToastrError(`${err.error['message']}`)
     })
+  }
+
+  closeDialog(): void {
+    this.dialogRef.close(false)
   }
 
 }
