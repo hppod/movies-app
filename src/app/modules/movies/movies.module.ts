@@ -20,7 +20,6 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { ComponentsModule } from "./../../components/components.module";
 import { NewMovieComponent } from './new-movie/new-movie.component'
 
-
 @NgModule({
   declarations: [
     MoviesComponent,
