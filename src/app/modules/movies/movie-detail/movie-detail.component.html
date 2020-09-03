@@ -1,5 +1,6 @@
-<app-loading *ngIf="!Filme"></app-loading>
-<div *ngIf="Filme" class="content" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="start center"
+<app-loading *ngIf="!Filme && !hasError"></app-loading>
+<app-error *ngIf="!Filme && hasError"></app-error>
+<div *ngIf="Filme && !hasError" class="content" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="start center"
     fxLayoutAlign.gt-sm="center start" fxLayoutGap="16px">
     <div fxFlex="50%" fxFlex.gt-sm="25%">
         <mat-card class="mat-elevation-z0">

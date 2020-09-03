@@ -14,6 +14,7 @@ export class MoviesComponent implements OnInit, OnDestroy {
 
   private httpRequest: Subscription
   Filmes: Filme[]
+  hasError: boolean = false
 
   constructor(
     private moviesService: MoviesService,
@@ -32,7 +33,7 @@ export class MoviesComponent implements OnInit, OnDestroy {
     this.httpRequest = this.moviesService.findAllMovies().subscribe(response => {
       this.Filmes = response.body['data']
     }, err => {
-      console.log(err)
+      this.hasError = true
     })
   }
 
