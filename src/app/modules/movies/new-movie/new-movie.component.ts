@@ -7,6 +7,8 @@ import { Diretor } from "./../../../core/models/diretor.model"
 import { DirectorsService } from "./../../../core/services/directors.service"
 import { MyToastrService } from "./../../../core/services/toastr.service"
 import { MoviesService } from "./../../../core/services/movies.service"
+import { DirectorValidator } from "./../../../core/validators/diretor.validator"
+import { MovieValidator } from "./../../../core/validators/filme.validator"
 import * as moment from "moment"
 
 @Component({
@@ -31,7 +33,9 @@ export class NewMovieComponent implements OnInit, OnDestroy {
     private builder: FormBuilder,
     private toastr: MyToastrService,
     private moviesService: MoviesService,
-    private dialogRef: MatDialogRef<NewMovieComponent>
+    private dialogRef: MatDialogRef<NewMovieComponent>,
+    private directorValidator: DirectorValidator,
+    private movieValidator: MovieValidator
   ) { }
 
   ngOnInit(): void {
@@ -60,7 +64,7 @@ export class NewMovieComponent implements OnInit, OnDestroy {
 
   initializeNewDirectorFormGroup(): void {
     this.directorFormGroup = this.builder.group({
-      nome: this.builder.control(null, [Validators.required]),
+      nome: this.builder.control(null, [Validators.required], this.directorValidator.validatorUniqueDirectorName()),
       imagem: this.builder.control(null),
       biografia: this.builder.control(null)
     })
@@ -68,7 +72,7 @@ export class NewMovieComponent implements OnInit, OnDestroy {
 
   initializeMovieFormGroup(): void {
     this.movieFormGroup = this.builder.group({
-      nome: this.builder.control(null, [Validators.required]),
+      nome: this.builder.control(null, [Validators.required], this.movieValidator.validatorUniqueMovieName()),
       genero: this.builder.control(null, [Validators.required]),
       imagem: this.builder.control(null, [Validators.required]),
       sinopse: this.builder.control(null, [Validators.required]),
@@ -129,6 +133,14 @@ export class NewMovieComponent implements OnInit, OnDestroy {
       let dateFormatted: string = moment.utc(value).local().format('YYYY-MM-DD')
       this.movieFormGroup.controls['dataLancamento'].setValue(dateFormatted)
     }
+  }
+
+  directorNameExists(): boolean {
+    return this.directorFormGroup.get('nome').hasError('directorNameAlreadyExists')
+  }
+
+  movieNameExists(): boolean {
+    return this.movieFormGroup.get('nome').hasError('movieNameAlreadyExists')
   }
 
 }

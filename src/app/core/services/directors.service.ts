@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from "@angular/common/http"
+import { HttpClient, HttpResponse, HttpParams } from "@angular/common/http"
 import { Observable } from "rxjs"
 import { Diretor } from "./../models/diretor.model"
 import { API_URL } from "./../api"
@@ -20,4 +20,11 @@ export class DirectorsService {
   createNewDirector(body: Diretor): Observable<HttpResponse<Diretor>> {
     return this.http.post<Diretor>(`${API_URL}/diretor/criar`, body, { observe: 'response' })
   }
+
+  validatorUniqueDirectorName(directorName: string) {
+    let myParams = new HttpParams()
+    myParams = myParams.append('nome', directorName)
+    return this.http.get<any>(`${API_URL}/diretor/validarNomeDiretor`, { params: myParams })
+  }
+
 }
