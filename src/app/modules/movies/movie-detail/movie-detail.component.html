@@ -8,9 +8,11 @@
         </mat-card>
         <mat-card class="mat-elevation-z3">
             <mat-card-header>
-                <img mat-card-avatar class="directorImage" [src]="Filme.diretor.imagem"
-                    onError="this.src='./../../../../assets/director.png'" alt="Photo of a {{Filme.diretor.nome}}">
-                <div class="directorName">{{Filme.diretor.nome}}</div>
+                <img mat-card-avatar class="directorImage routerLinkClass" [src]="Filme.diretor.imagem"
+                    onError="this.src='./../../../../assets/director.png'" alt="Photo of a {{Filme.diretor.nome}}"
+                    [routerLink]="['/directors/detail', Filme.diretor.nome]">
+                <div class="directorName routerLinkClass" [routerLink]="['/directors/detail', Filme.diretor.nome]">
+                    {{Filme.diretor.nome}}</div>
             </mat-card-header>
         </mat-card>
     </div>
@@ -19,20 +21,20 @@
             <div class="row">
                 <span class="mat-display-1 uppercase-text">{{Filme.nome}}</span>
                 <br>
-                <span class="movieInfo">{{Filme.genero}}</span>
+                <span class="aditionalInfo">{{Filme.genero}}</span>
                 <br>
-                <span *ngIf="Filme.dataLancamento" class="movieInfo">Lançado em
+                <span *ngIf="Filme.dataLancamento" class="aditionalInfo">Lançado em
                     {{Filme.dataLancamento | date: 'dd/MM/yyyy'}}</span>
             </div>
             <div *ngIf="Filme.classificacaoIndicativa || Filme.duracao" class="row">
-                <span *ngIf="Filme.classificacaoIndicativa" class="movieInfo"><b class="movieInfoBold">
+                <span *ngIf="Filme.classificacaoIndicativa" class="aditionalInfo"><b class="movieInfoBold">
                         Classificação Indicativa: </b> {{Filme.classificacaoIndicativa}} &nbsp;</span>
-                <span *ngIf="Filme.duracao" class="movieInfo"><b class="movieInfoBold">Duração do filme:
+                <span *ngIf="Filme.duracao" class="aditionalInfo"><b class="movieInfoBold">Duração do filme:
                     </b>{{Filme.duracao}}</span>
             </div>
             <br>
             <div class="row">
-                <p class="movieSynopsis">{{Filme.sinopse}}</p>
+                <p class="text-p">{{Filme.sinopse}}</p>
             </div>
         </mat-card>
     </div>

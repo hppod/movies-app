@@ -24,3 +24,25 @@ body {
 .content>mat-card {
     width: 200px;
 }
+
+.routerLinkClass {
+    cursor: pointer;
+}
+
+.routerLinkClass:hover {
+    text-decoration: underline
+}
+
+.uppercase-text {
+    text-transform: uppercase;
+}
+
+.aditionalInfo {
+    font-size: 14px;
+    color: rgb(120, 120, 120);
+}
+
+.text-p {
+    text-align: justify;
+    text-justify: inter-word;
+}

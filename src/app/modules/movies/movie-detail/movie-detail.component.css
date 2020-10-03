@@ -17,20 +17,6 @@
     margin-left: -20px;
 }
 
-.uppercase-text {
-    text-transform: uppercase;
-}
-
-.movieInfo {
-    font-size: 14px;
-    color: rgb(120, 120, 120);
-}
-
 .movieInfoBold {
     color: rgb(115, 115, 115);
-}
-
-.movieSynopsis {
-    text-align: justify;
-    text-justify: inter-word;
 }

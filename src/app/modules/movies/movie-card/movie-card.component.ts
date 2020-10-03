@@ -9,6 +9,8 @@ import { Filme } from "./../../../core/models/filme.model"
 export class MovieCardComponent implements OnInit {
 
   @Input() Filme: Filme
+  @Input() showHeader: boolean = true
+  @Input() showSynopsis: boolean = true
 
   constructor() { }
 
