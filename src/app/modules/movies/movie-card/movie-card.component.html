@@ -1,0 +1,16 @@
+<mat-card class="mat-elevation-z4">
+    <mat-card-header>
+        <img mat-card-avatar class="director-image" [src]="Filme.diretor.imagem"
+            onError="this.src='./../../../../assets/director.png'">
+        <mat-card-title>{{Filme.diretor.nome}}</mat-card-title>
+        <mat-card-subtitle>{{Filme.genero}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [routerLink]="['/movies/detail', Filme.nome]" class="moviePoster-image routerLinkMovie"
+        [src]="Filme.imagem" alt="Poster of a {{Filme.nome}}">
+    <mat-card-content>
+        <span [routerLink]="['/movies/detail', Filme.nome]" class="mat-h2 routerLinkMovie">{{Filme.nome}}</span>
+        <p>
+            {{sliceSnyposis(Filme.sinopse)}}
+        </p>
+    </mat-card-content>
+</mat-card>

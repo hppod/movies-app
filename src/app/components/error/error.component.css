@@ -1,0 +1,9 @@
+.error {
+    padding: 35px;
+    margin: auto;
+    border-radius: 10px 20px;
+}
+
+.error-content {
+    text-align: center;
+}

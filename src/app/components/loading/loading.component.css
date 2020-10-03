@@ -1,0 +1,21 @@
+.loading {
+    padding: 35px;
+    margin: auto;
+    border-radius: 10px 20px;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.center-spinner {
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.margin-text {
+    margin-top: 10px;
+}
