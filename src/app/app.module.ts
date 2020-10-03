@@ -14,6 +14,8 @@ import { ErrorInterceptor } from "./core/helpers/error.interceptor"
 
 registerLocaleData(localePt, 'pt-BR')
 
+registerLocaleData(localePt, 'pt-BR')
+
 @NgModule({
   declarations: [
     AppComponent
