@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>Adicionar um diretor</h2>
+<form [formGroup]="directorFormGroup" class="form">
+    <mat-form-field class="form-element">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome" placeholder="Nome" required>
+        <mat-error *ngIf="directorNameExists()">Já existe um diretor cadastrado com esse nome</mat-error>
+    </mat-form-field>
+    <mat-form-field class="form-element">
+        <mat-label>Imagem</mat-label>
+        <input matInput formControlName="imagem" placeholder="Link da imagem">
+    </mat-form-field>
+    <mat-form-field class="form-element">
+        <mat-label>Biografia</mat-label>
+        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" formControlName="biografia"
+            placeholder="Biografia"></textarea>
+    </mat-form-field>
+</form>
+<div class="form-element">
+    <button class="buttonForm" color="primary" mat-button (click)="createNewDirector()"
+        [disabled]="directorFormGroup.invalid">Adicionar diretor</button>
+</div>
+<div class="fomr-element">
+    <button mat-button class="buttonForm" color="warn" (click)="closeDialog()">Fechar</button>
+</div>

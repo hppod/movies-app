@@ -46,6 +46,9 @@ import { NewMovieComponent } from './new-movie/new-movie.component'
   providers: [
     MatDatepickerModule,
     MatNativeDateModule
+  ],
+  exports: [
+    MovieCardComponent
   ]
 })
 export class MoviesModule { }

@@ -1,4 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.content {
+    padding: 16px;
+}
+
+.imageCard {
+    height: 400px;
+}
+
+.director-image {
+    background-size: cover;
+}
+
+.content>mat-card {
+    width: 200px;
+}
+
+.routerLinkClass {
+    cursor: pointer;
+}
+
+.routerLinkClass:hover {
+    text-decoration: underline
+}
+
+.uppercase-text {
+    text-transform: uppercase;
+}
+
+.aditionalInfo {
+    font-size: 14px;
+    color: rgb(120, 120, 120);
+}
+
+.text-p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.form-element {
+    padding: 5px 0px 25px 2px;
+    width: 100%;
+}
+
+.buttonForm {
+    width: 100%;
+}

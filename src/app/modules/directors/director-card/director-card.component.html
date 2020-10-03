@@ -1,0 +1,17 @@
+<mat-card class="mat-elevation-z4">
+    <img mat-card-image class="imageCard routerLinkClass" [src]="Director.imagem"
+        onError="this.src='./../../../../assets/director.png'" alt="Photo of a {{Director.nome}}"
+        [routerLink]="['/directors/detail', Director.nome]">
+    <mat-card-content>
+        <span class="mat-h2 routerLinkClass"
+            [routerLink]="['/directors/detail', Director.nome]">{{Director.nome}}</span>
+        <br>
+        <span class="countMovies">{{countMoviesOnDirector(Director.filmes.length)}}</span>
+        <p *ngIf="Director.biografia">
+            {{sliceBiography(Director.biografia)}}
+        </p>
+        <p *ngIf="!Director.biografia">
+            Não foi informada biografia do diretor
+        </p>
+    </mat-card-content>
+</mat-card>

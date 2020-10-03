@@ -1,0 +1,33 @@
+<app-loading *ngIf="!Director && !hasError"></app-loading>
+<app-error *ngIf="!Director && hasError"></app-error>
+<div *ngIf="Director && !hasError" class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%">
+        <mat-card class="mat-elevation-z0">
+            <img mat-card-image class="directorCover-image" [src]="Director.imagem"
+                onError="this.src='./../../../../../assets/director.png'" alt="Photo of a {{Director.nome}}">
+        </mat-card>
+    </div>
+    <div fxFlex="75%" fxFlex.xs="100%" fxFlex.sm="67%">
+        <mat-card class="mat-elevation-z0">
+            <div class="row">
+                <span class="mat-display-1 uppercase-text">{{Director.nome}}</span>
+                <br>
+                <span class="aditionalInfo">{{countMoviesOnDirector(Director.filmes.length)}}</span>
+            </div>
+            <br>
+            <div class="row">
+                <p *ngIf="Director.biografia" class="text-p">{{Director.biografia}}</p>
+                <p *ngIf="!Director.biografia" class="text-p">Não foi informada a biografia do diretor</p>
+            </div>
+        </mat-card>
+    </div>
+    <div>
+        <span class="mat-subheading-2 uppercase-text">{{titleMoviesOnDirector(Director.filmes.length)}}</span>
+        <br>
+        <div class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+            <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let movie of Director.filmes">
+                <app-movie-card [Filme]="movie" [showHeader]="false" [showSynopsis]="false"></app-movie-card>
+            </div>
+        </div>
+    </div>
+</div>

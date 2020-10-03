@@ -27,4 +27,8 @@ export class DirectorsService {
     return this.http.get<any>(`${API_URL}/diretor/validarNomeDiretor`, { params: myParams })
   }
 
+  findDirectorByName(directorName: String): Observable<HttpResponse<Diretor>> {
+    return this.http.get<Diretor>(`${API_URL}/diretor/listarUm/${directorName}`, { observe: 'response' })
+  }
+
 }

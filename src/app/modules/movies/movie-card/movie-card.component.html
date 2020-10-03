@@ -1,15 +1,17 @@
 <mat-card class="mat-elevation-z4">
-    <mat-card-header>
-        <img mat-card-avatar class="director-image" [src]="Filme.diretor.imagem"
-            onError="this.src='./../../../../assets/director.png'">
-        <mat-card-title>{{Filme.diretor.nome}}</mat-card-title>
+    <mat-card-header *ngIf="showHeader">
+        <img mat-card-avatar class="director-image routerLinkClass" [src]="Filme.diretor.imagem"
+            onError="this.src='./../../../../assets/director.png'"
+            [routerLink]="['/directors/detail', Filme.diretor.nome]">
+        <mat-card-title class="routerLinkClass" [routerLink]="['/directors/detail', Filme.diretor.nome]">
+            {{Filme.diretor.nome}}</mat-card-title>
         <mat-card-subtitle>{{Filme.genero}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image [routerLink]="['/movies/detail', Filme.nome]" class="moviePoster-image routerLinkMovie"
+    <img mat-card-image [routerLink]="['/movies/detail', Filme.nome]" class="imageCard routerLinkClass"
         [src]="Filme.imagem" alt="Poster of a {{Filme.nome}}">
     <mat-card-content>
-        <span [routerLink]="['/movies/detail', Filme.nome]" class="mat-h2 routerLinkMovie">{{Filme.nome}}</span>
-        <p>
+        <span [routerLink]="['/movies/detail', Filme.nome]" class="mat-h2 routerLinkClass">{{Filme.nome}}</span>
+        <p *ngIf="showSynopsis">
             {{sliceSnyposis(Filme.sinopse)}}
         </p>
     </mat-card-content>
